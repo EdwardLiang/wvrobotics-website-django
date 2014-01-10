@@ -1,30 +1,30 @@
 <div class="row-fluid">
 			<div class="camera_wrap pattern_4 camera_emboss" id="camera_wrap_4">
-          <div data-src="{{MEDIA_URL}img/frc3.jpg">
+          <div data-src="{% for picture in carousel_pictures|slice:"0:1" %}{{ picture.image.url }}{% endfor %}">
 					<div class="camera_caption fadeFromTop">
 					</div>
 				</div>
-				<div data-src="assets/img/ftc1.jpg">
+        <div data-src="{% for picture in carousel_pictures|slice:"1:2" %}{{ picture.image.url }}{% endfor %}">
 					<div class="camera_caption fadeFromRight">
 					</div>
 				</div>
-        <div data-src="assets/img/frc1.jpg">
+        <div data-src="{% for picture in carousel_pictures|slice:"2:3" %}{{ picture.image.url }}{% endfor %}">
 					<div class="camera_caption fadeFromRight">
 					</div>
 				</div>
-        <div data-src="assets/img/ftc3.jpg">
+        <div data-src="{% for picture in carousel_pictures|slice:"3:4" %}{{ picture.image.url }}{% endfor %}">
 					<div class="camera_caption fadeFromRight">
 					</div>
 				</div>
-        <div data-src="assets/img/ftc2.jpg">
+        <div data-src="{% for picture in carousel_pictures|slice:"4:5" %}{{ picture.image.url }}{% endfor %}">
 					<div class="camera_caption fadeFromRight">
 					</div>
 				</div>
-        <div data-src="assets/img/frc2.jpg">
+        <div data-src="{% for picture in carousel_pictures|slice:"5:6" %}{{ picture.image.url }}{% endfor %}">
 					<div class="camera_caption fadeFromRight">
 					</div>
 				</div>
-        <div data-src="assets/img/outreach2.jpg">
+        <div data-src="{% for picture in carousel_pictures|slice:"6:7" %}{{ picture.image.url }}{% endfor %}">
 					<div class="camera_caption fadeFromRight">
 					</div>
 				</div>
