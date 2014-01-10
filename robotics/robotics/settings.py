@@ -15,6 +15,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL = '/assets/'
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.media',
+    'django.contrib.auth.context_processors.auth',
+)
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -54,6 +60,10 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'robotics.urls'
 
 WSGI_APPLICATION = 'robotics.wsgi.application'
+
+TEMPLATE_DIRS = (
+    'django.template.loaders.app_directories.Loader'
+)
 
 
 # Database
