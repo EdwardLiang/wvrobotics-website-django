@@ -3,7 +3,8 @@ from frontpage import views
 from django.conf import settings
 
 urlpatterns = patterns('',
-    url(r'^$', views.index, name='index')
+    url(r'^$', views.index, name='index'),
+    url(r'^carousel', views.carousel, name='carousel'),
 )
 
 if settings.DEBUG:
