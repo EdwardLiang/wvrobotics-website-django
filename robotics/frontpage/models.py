@@ -2,9 +2,12 @@ from django.db import models
 
 class Picture(models.Model):
     image = models.ImageField(upload_to = 'images/')
+    name = models.CharField(max_length=200)
+    def __unicode__(self):
+        return self.name
 
 class Background(models.Model):
-    image = models.ForeignKey(Picture, blank=True, null=True)
+    image = models.ImageField(upload_to = 'images/')
 
 class Carousel(models.Model):
     images = models.ManyToManyField(Picture, blank=True, null=True)
@@ -19,11 +22,13 @@ class Carousel(models.Model):
         return self.name
 
 class HeaderPicture(models.Model):
-    images = models.ManyToManyField(Picture, blank=True, null=True) 
+    image = models.ImageField(upload_to = 'images/') 
 
 class Page(models.Model):
     carousel = models.ManyToManyField(Carousel, blank=True, null=True)
     title = models.CharField(max_length=200)
+    url_title = models.CharField(max_length=200)
+    name_on_navbar = models.CharField(max_length=200)
     images = models.ManyToManyField(Picture, blank=True, null=True)
     text = models.CharField(max_length=2000, blank=True, null=True)
     def __unicode__(self):

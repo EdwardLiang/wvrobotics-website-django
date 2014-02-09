@@ -2,7 +2,7 @@
 <div class="container clearfix">
   <div class="row-fluid">
     <div class="span12">
-        <h1 class="brandlogo"><a href="index.php"><img class="hidden-phone" src="{{ MEDIA_URL }}img/logo.png" alt="" style="width: 65px;"><img src="{{ header_picture.image.url }}" alt="" style="display:inline-block"></a></h1>
+        <h1 class="brandlogo"><a href="/"><img class="hidden-phone" src="{{ MEDIA_URL }}img/logo.png" alt="" style="width: 65px;"><img src="{{ header_picture.image.url }}" alt="" style="display:inline-block"></a></h1>
       <div class="topinfo">
         <ul class="social-icons list-soc">
           <li><a href="https://www.facebook.com/FIRSTWVRobotics"><i class="icon-facebook"></i></a></li>
@@ -15,10 +15,12 @@
         <div class="navbar-inner">
           <ul id="nav" class="nav">
             <li class="selected" id="home"><a href="/">Home</a></li>
+             <li class="divider-vertical"></li>
+
                 {% for page in page_groups %}
                    {% include "navbarentry.html" %}
                 {% endfor %}
-            <li class="selected" id="contact"><a href="/contact">Contact</a></li>
+              <li class="selected" id="contact"><a href="/contact">Contact</a></li>
             <li class="divider-vertical"></li>
           </ul>
         </div>

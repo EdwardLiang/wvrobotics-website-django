@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-{% include "header.html" %}
-
-<body class="boxed">
-<div class="body">
-	<!-- Navigation -->
-  {% include "navbar.html" %}
-
-		<div class="text-center">
-        <img src="{{ MEDIA_URL }}biscaya/theme/img/sha.png" class="slidershadow" alt="">
-	</div>
-	<!-- /end header -->
-	<div class="container">
+{% extends "base.html" %}
+{% block content %}
+    <div class="page-header">
+        <h1>{{ page.title }}</h1>
+        <div class="headerdivider">
+        </div>
     </div>
-    {% include "footer.html" %}
-    </div>
-</body>
-</html>
-
+{% endblock %}
