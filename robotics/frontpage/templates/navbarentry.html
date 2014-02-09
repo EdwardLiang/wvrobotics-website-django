@@ -3,7 +3,7 @@
                 #
                 {% else %}
                     {% with page.pages.all|first as image %}
-                    /{{ image.Meta.page_type }}/{{ image.title }} 
+                    /{{ image.classname }}/{{ image.url_title }} 
                     {% endwith %}
                 {% endif %}"
                 
@@ -13,7 +13,7 @@
                 {% if page.pages.all|length > 1 %}
                 <ul class="dropdown-menu js-activated" style="display: none;">
                 {% for subpage in page.pages.all %}
-                <li><a href="/{{ subpage.Meta.page_type }}/{{ subpage.name_on_navbar }}">{{ subpage.url_title }}</a></li>
+                <li><a href="/{{ subpage.classname }}/{{ subpage.url_title }}">{{ subpage.url_title }}</a></li>
                 {% endfor %}
               <!--.dropdown-->
             </ul>

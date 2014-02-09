@@ -1,4 +1,6 @@
 from django.db import models
+from model_utils.managers import InheritanceManager
+
 
 class Picture(models.Model):
     image = models.ImageField(upload_to = 'images/')
@@ -33,16 +35,21 @@ class Page(models.Model):
     text = models.TextField(blank=True, null=True)
     html = models.TextField(blank=True, null=True)
     priority = models.IntegerField(default=0)
+    objects = InheritanceManager()
     class Meta:
         ordering = ['-priority',]
     def __unicode__(self):
         return self.title
-
+    def classname(self):
+        return self.__class__.objects.get_subclass(url_title = self.url_title).__class__.__name__
+         
+    
 class FrontPage(Page):
     title = 'index'
     url_title = 'index'
     name_on_navbar = 'index'
     frontPageCarousel = models.ForeignKey(Carousel, blank=True, null=True)
+
 
 class RobotPage(Page):
     robotName = models.CharField(max_length=200)
@@ -54,6 +61,7 @@ class RobotPage(Page):
         return self.title
     class Meta:
         ordering = ['-priority',]
+
 
 class PageGroup(models.Model):
     title = models.CharField(max_length=200)

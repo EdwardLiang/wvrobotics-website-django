@@ -21,13 +21,17 @@ def robotpage(request, name="1"):
     })
     return HttpResponse(template.render(context))
 
-
     
 def page(request, name="1"):
     if name == 1:
         return index(request)
-    page = get_object_or_404(Page, url_title = name)
-    template = loader.get_template('page.html')
+    page = Page.objects.get_subclass(url_title = name)
+    if isinstance(type(page), RobotPage):
+        return robotpage(request, name)
+    elif isinstance(type(page), FrontPage):
+        return index(request)
+    else:
+        template = loader.get_template('page.html')
     context = RequestContext(request, {
         'page': page,
     })
