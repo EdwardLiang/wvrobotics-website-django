@@ -10,4 +10,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('frontpage.urls')),
+    url(r'^contact/', include('django_contact_form.urls')),
+
 )

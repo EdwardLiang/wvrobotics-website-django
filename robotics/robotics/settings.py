@@ -18,8 +18,18 @@ MEDIA_URL = '/assets/'
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.contrib.auth.context_processors.auth',
+    'frontpage.context_processors.base',
 )
 
+CONTACT_FORM_RECIPIENTS = (
+        ('Westview Robotics', 'wvrobotics@gmail.com'),
+)
+
+EMAIL_HOST = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = ''
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -46,7 +56,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'frontpage',
+    'floppyforms',
+    'django_contact_form',
+    'django.contrib.sites',
 )
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

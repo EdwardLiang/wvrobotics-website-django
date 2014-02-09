@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-{% include "header.html" %}
-
-<body class="boxed">
-<div class="body">
-	<!-- Navigation -->
-  {% include "navbar.html" %}
-
-		<div class="text-center">
-        <img src="{{ MEDIA_URL }}biscaya/theme/img/sha.png" class="slidershadow" alt="">
-	</div>
-	<!-- /end header -->
+{% extends "base.html" %}
+{% block content %}
 	<div class="container">
-      {% include "carousel.html" %}
+      {% for carousel in carousels.all %}
+          {% include "carousel.html" %}
+      {% endfor %}
     			<div class="text-center">
           <img src="{{ MEDIA_URL }}biscaya/theme/img/sha.png" class="slidershadowcam" alt="">
 			</div>
-		</div>
 <div class="titleborder">
             <div>
                 Recent Activity 
@@ -46,7 +37,6 @@
         
     </div>
 	</div>
-{% include "footer.html" %}
 
 <script>
 	jQuery(function(){
@@ -122,5 +112,4 @@ $(document).ready(function(){
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=114615118645359";
       fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-</body>
-</html>
+{% endblock %}

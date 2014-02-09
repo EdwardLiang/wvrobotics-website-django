@@ -1,0 +1,5 @@
+Dependacies:
+-------------
+Django
+https://github.com/jbergantine/django-contact-form
+South

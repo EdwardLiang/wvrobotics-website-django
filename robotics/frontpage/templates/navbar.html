@@ -14,10 +14,12 @@
       <div class="row-nav navbar">
         <div class="navbar-inner">
           <ul id="nav" class="nav">
-            <li class="selected" id="home"><a href="index.php">Home</a></li>
+            <li class="selected" id="home"><a href="/">Home</a></li>
                 {% for page in page_groups %}
                    {% include "navbarentry.html" %}
                 {% endfor %}
+            <li class="selected" id="contact"><a href="/contact">Contact</a></li>
+            <li class="divider-vertical"></li>
           </ul>
         </div>
       </div>

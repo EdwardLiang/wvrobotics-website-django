@@ -1,9 +1,18 @@
             <li class="divider-vertical"></li>
-            <li id="about" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
-            {% if page.pages.all %}
-            <ul class="dropdown-menu js-activated" style="display: none;">
-                {% for subpage in page.pages %}
-                <li><a href="pages/{{ subpage.title }}">{{ subpage.title }}</a></li>
+            <li id="navbarentry" class="dropdown"><a href=
+                {% if pages.pages.all|length > 1 %} 
+                "#"
+                {% else %}
+                "/pages/{{ page.firstpage.title }}" 
+                {% endif %}
+                
+                class="dropdown-toggle" data-toggle="dropdown">{{ page.title }} {% if page.pages.all|length > 1 %}
+                <b class="caret"></b>{% endif %}
+</a>
+                {% if page.pages.all|length > 1 %}
+                <ul class="dropdown-menu js-activated" style="display: none;">
+                {% for subpage in page.pages.all %}
+                    <li><a href="/pages/{{ subpage.title }}">{{ subpage.title }}</a></li>
                 {% endfor %}
               <!--.dropdown-->
             </ul>
