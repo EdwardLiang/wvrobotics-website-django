@@ -16,11 +16,11 @@ class Caption(models.Model):
 
 class Page(models.Model):
     title = models.CharField(max_length=200)
-    images = models.ForeignKey(Picture, null=True, blank=True)
+    images = models.ForeignKey(Picture, blank=True, null=True)
 
 class PageGroup(models.Model):
     title = models.CharField(max_length=200)
-    pages = models.ForeignKey(Page, null=True, blank=True)
+    mainPage = models.ForeignKey(Page, blank=True, null=True)
 
 
 
