@@ -25,31 +25,42 @@ class HeaderPicture(models.Model):
     image = models.ImageField(upload_to = 'images/') 
 
 class Page(models.Model):
-    carousel = models.ManyToManyField(Carousel, blank=True, null=True)
+    carousel = models.ForeignKey(Carousel, blank=True, null=True)
     title = models.CharField(max_length=200)
     url_title = models.CharField(max_length=200)
     name_on_navbar = models.CharField(max_length=200)
     images = models.ManyToManyField(Picture, blank=True, null=True)
-    text = models.CharField(max_length=2000, blank=True, null=True)
+    text = models.TextField(blank=True, null=True)
+    html = models.TextField(blank=True, null=True)
+    priority = models.IntegerField(default=0)
+    class Meta:
+        ordering = ['-priority',]
     def __unicode__(self):
         return self.title
 
-class indexPage(Page):
+class FrontPage(Page):
     title = 'index'
+    url_title = 'index'
+    name_on_navbar = 'index'
+    frontPageCarousel = models.ForeignKey(Carousel, blank=True, null=True)
 
 class RobotPage(Page):
     robotName = models.CharField(max_length=200)
     challenge = models.CharField(max_length=200)
     leagueType = models.CharField(max_length=200)
+    challengeDescription = models.TextField(blank=True, null=True)
+    carousel2 = models.ForeignKey(Carousel, blank=True, null=True)
     def __unicode__(self):
         return self.title
+    class Meta:
+        ordering = ['-priority',]
 
 class PageGroup(models.Model):
     title = models.CharField(max_length=200)
     pages = models.ManyToManyField(Page, blank=True, null=True)
+    priority = models.IntegerField(default=0)
     def __unicode__(self):
         return self.title
-
 
 
 # Create your models here.

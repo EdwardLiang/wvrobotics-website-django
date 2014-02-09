@@ -1,13 +1,6 @@
 from django.contrib import admin
 from frontpage.models import * 
 
-admin.site.register(Picture)
-admin.site.register(Carousel)
-admin.site.register(Page)
-admin.site.register(RobotPage)
-admin.site.register(PageGroup)
-
-
 class OneAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
        num_objects = self.model.objects.count()
@@ -16,6 +9,16 @@ class OneAdmin(admin.ModelAdmin):
        else:
            return True
 
-admin.site.register(Background, OneAdmin)
 admin.site.register(HeaderPicture, OneAdmin)
+admin.site.register(Background, OneAdmin)
+
+admin.site.register(Carousel)
+admin.site.register(Picture)
+
+admin.site.register(PageGroup)
+admin.site.register(FrontPage, OneAdmin)
+admin.site.register(RobotPage)
+admin.site.register(Page)
+
+
 # Register your models here.

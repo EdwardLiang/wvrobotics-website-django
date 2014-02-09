@@ -11,7 +11,8 @@ def base(request):
         background = Background.objects.all()[0]
     else:
         background = None
-    page_groups = PageGroup.objects.all()
+    page_groups = PageGroup.objects.all().order_by('-priority')
+
     return {
         'header_picture' : header_picture,
         'page_groups' : page_groups,
