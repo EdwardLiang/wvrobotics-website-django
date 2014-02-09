@@ -13,4 +13,15 @@ class Caption(models.Model):
     text = models.CharField(max_length=200)
     def __unicode__(self):
         return self.text
+
+class Page(models.Model):
+    title = models.CharField(max_length=200)
+    images = models.ForeignKey(Picture, null=True, blank=True)
+
+class PageGroup(models.Model):
+    title = models.CharField(max_length=200)
+    pages = models.ForeignKey(Page, null=True, blank=True)
+
+
+
 # Create your models here.

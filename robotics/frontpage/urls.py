@@ -5,6 +5,8 @@ from django.conf import settings
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^carousel', views.carousel, name='carousel'),
+    url(r'^navbar', views.navbar),
+    url(r'^pages/(?P<name>.*)', views.page),
 )
 
 if settings.DEBUG:
