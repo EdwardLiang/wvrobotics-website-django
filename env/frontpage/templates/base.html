@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% include "header.html" %}
+
+<body class="boxed">
+<div class="body">
+	<!-- Navigation -->
+  {% include "navbar.html" %}
+
+		<div class="text-center">
+        <img src="{{ MEDIA_URL }}biscaya/theme/img/sha.png" class="slidershadow" alt="">
+	</div>
+	<!-- /end header -->
+	<div class="container">
+      {% block content %}{% endblock %}
+    </div>
+    {% include "footer.html" %}
+    </div>
+  <style>
+body.boxed{background:url('{{ background.image.url }}');
+           background-attachment: fixed;
+           background-repeat: no-repeat;
+           background-size: cover;
+           }
+
+  </style>
+
+</body>
+</html>
+

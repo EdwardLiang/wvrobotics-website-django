@@ -1,0 +1,12 @@
+<div class="span6 top10">
+    <div class="flexslider">
+        <ul class="slides">
+            {% for picture in carousel.images %}
+                <li>
+                    <img src="{{ picture.image.url }}" alt="">
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>

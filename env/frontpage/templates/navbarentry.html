@@ -1,0 +1,23 @@
+            <li id="navbarentry" class="dropdown"><a href="
+                {% if page.pages.all|length > 1 %} 
+                #
+                {% else %}
+                    {% with page.pages.all|first as image %}
+                    /{{ image.classname }}/{{ image.url_title }} 
+                    {% endwith %}
+                {% endif %}"
+                
+                class="dropdown-toggle" data-toggle="dropdown">{{ page.title }} {% if page.pages.all|length > 1 %}
+                <b class="caret"></b>{% endif %}
+</a>
+                {% if page.pages.all|length > 1 %}
+                <ul class="dropdown-menu js-activated" style="display: none;">
+                {% for subpage in page.pages.all %}
+                <li><a href="/{{ subpage.classname }}/{{ subpage.url_title }}">{{ subpage.url_title }}</a></li>
+                {% endfor %}
+              <!--.dropdown-->
+            </ul>
+            {% endif %}
+            </li>
+            <li class="divider-vertical"></li>
+
